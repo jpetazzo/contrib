@@ -29,11 +29,11 @@ func main() {
 	flag.Parse()
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprint(w, "default backend - 404")
+		fmt.Fprint(w, "default backend - 404\n")
 	})
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
-		fmt.Fprint(w, "ok")
+		fmt.Fprint(w, "ok\n")
 	})
 	http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
 }
